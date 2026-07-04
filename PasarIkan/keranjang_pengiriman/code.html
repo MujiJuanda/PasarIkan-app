@@ -1,0 +1,324 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FishGo - My Cart &amp; Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#9ccbfb",
+                        "surface-bright": "#f4faff",
+                        "surface-dim": "#d2dbe1",
+                        "on-error-container": "#93000a",
+                        "primary": "#002a48",
+                        "on-primary-container": "#7faddc",
+                        "outline": "#72777f",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#16d9fb",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "tertiary": "#262829",
+                        "primary-container": "#00416a",
+                        "surface-container-highest": "#dbe4ea",
+                        "primary-fixed": "#cfe5ff",
+                        "error-container": "#ffdad6",
+                        "on-background": "#141d21",
+                        "on-primary-fixed-variant": "#114a73",
+                        "surface-container-high": "#e0e9ef",
+                        "secondary-fixed": "#aaedff",
+                        "outline-variant": "#c2c7cf",
+                        "on-secondary-container": "#005d6d",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#42474e",
+                        "on-tertiary-container": "#a8a9a9",
+                        "secondary-container": "#1fdcfe",
+                        "tertiary-container": "#3c3e3e",
+                        "surface-variant": "#dbe4ea",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#ecf5fb",
+                        "surface-tint": "#31628d",
+                        "inverse-primary": "#9ccbfb",
+                        "inverse-on-surface": "#e9f2f8",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface": "#f4faff",
+                        "inverse-surface": "#293236",
+                        "background": "#f4faff",
+                        "secondary": "#006879",
+                        "on-primary-fixed": "#001d33",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container": "#e6eff5",
+                        "on-surface": "#141d21",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#004e5c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Montserrat"],
+                        "price-display": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "price-display": ["22px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .ocean-shadow {
+            box-shadow: 0 8px 20px 0 rgba(0, 42, 72, 0.06);
+        }
+        .gradient-oceanic {
+            background: linear-gradient(135deg, #00416a 0%, #002a48 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container/30">
+<!-- Top App Bar -->
+<header class="bg-white/70 dark:bg-surface/70 backdrop-blur-xl docked full-width top-0 sticky z-40 border-b border-white/20 dark:border-outline-variant shadow-[0_8px_20px_0_rgba(0,42,72,0.06)] h-16 w-full flex justify-between items-center px-container-margin max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="FishGo logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0QTh8DOmSXrqNIwTJOTeCmWXx7WiTsoe2_L_7c9qTdo_rldVY51gSWFY51q1sP79X_63H4SqopD-YBOtk0VEB8hb_qAYMys3bZ4Qs-WFfzRQwDQeObjAzSbgqBQtDJ6t0obGcsi7qymUYa4Rv9obQbdb_9bXWNQ_Vicl3jdeMosSRnSTUqbLYhsP1upbXA7IkiRLp4mOoHtU629QJQFRY-OqpMDHjG5-xxAVw7z76rPCwSUvX5qBjFQ07_s4UPtppt1ebf_JSFb3I">
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed-dim font-bold">PasarIkan</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-full hover:bg-primary/5 transition-colors text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+                Atur Lokasi</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin py-stack-lg pb-32">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Cart Items & Details -->
+<div class="lg:col-span-8 space-y-stack-md">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Hasil Tangkapan</h1>
+<!-- Cart Items List -->
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="glass-panel ocean-shadow rounded-xl p-4 flex gap-4 items-center">
+<div class="w-24 h-24 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up high resolution photography of a fresh whole premium sea bass resting on crushed ice. The fish scales are shimmering with a silvery light, set against a clean, clinical white background with soft blue tinted shadows. Elegant, high-end food commercial style with cool, oceanic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8KbRcYMgu9l0Eql1IanonVh5Ia69e8AY8uEKbVjnfxp6PJTzlmVBiln7z_5iufm4YdM8MqNM0PjtWyLvWELV8sw3Pp34YuBBzEkfDadvijr8Gkik3tw7uMqcSDg9FUgnQOl1n3o-IPVFUHrbp2KBjYENRumZoRpcjPOSbCi7Li1MvvVCBWP4ZIAtEbUvAi8MS449e8OX5JIiemTddp39luTkeupaOhqcNG3fX8qHBQdZKVjzp1WqtpDAG8NcEHeWBTDZ5W9dM_QSU">
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md-mobile text-primary">Wild Sea Bass</h3>
+<p class="text-on-surface-variant font-label-md text-label-md">Freshly caught • 800g - 1kg</p>
+<div class="mt-2 flex items-center justify-between">
+<span class="font-price-display text-price-display text-primary">$34.50</span>
+<div class="flex items-center gap-3 bg-surface-container-high rounded-full px-2 py-1">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white transition-all text-primary">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="font-label-md text-label-md min-w-[20px] text-center">1</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white transition-all text-primary">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="glass-panel ocean-shadow rounded-xl p-4 flex gap-4 items-center">
+<div class="w-24 h-24 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Exquisite studio shot of fresh king prawns arranged artistically on a marble surface with droplets of water and a slice of lemon. The lighting is crisp and refreshing, emphasizing the translucent quality of the shrimp. A premium, high-contrast look featuring soft oceanic blues and clean whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQDI7WZ3-3ljNz8GEPbsQTZANoqPMkp7E650_QZHQlloi05co-UBAUxbOnzfyWu018xedj7wQzgRwZXsfutMPE6qgBZc6JOrdYmSK86OYtrkDE7mlT1JEgkgRcBUQxITtDdEsM5zphIVGz3cSAtRfcZgRWxEqEzRa-dmjO4_TIM79WYNl88AS1sRzcUP7y5OSfE5Eyiye0XPx37quR3aQ-EdHkDkOKV7ZqXAJrXzS_GVl-cDAIqIgShttdgTCKaPvPpMFzXJJCKQ2O">
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md-mobile text-primary">Jumbo King Prawns</h3>
+<p class="text-on-surface-variant font-label-md text-label-md">Peeled &amp; deveined • 500g</p>
+<div class="mt-2 flex items-center justify-between">
+<span class="font-price-display text-price-display text-primary">$28.00</span>
+<div class="flex items-center gap-3 bg-surface-container-high rounded-full px-2 py-1">
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white transition-all text-primary">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="font-label-md text-label-md min-w-[20px] text-center">2</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white transition-all text-primary">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Delivery Configuration -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+<!-- Address Selection -->
+<div class="glass-panel ocean-shadow rounded-xl p-5 border-l-4 border-primary">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-headline-md text-headline-md-mobile text-primary">Delivery Address</h4>
+<button class="text-secondary font-label-md text-label-md">Edit</button>
+</div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 p-3 rounded-lg border border-primary-fixed-dim bg-primary-fixed/20 cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary w-4 h-4" name="address" type="radio">
+<div>
+<p class="font-label-md text-label-md text-primary">Home</p>
+<p class="text-xs text-on-surface-variant">24 Marina Walk, Coastal City, 4522</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg border border-outline-variant hover:border-primary-fixed-dim transition-all cursor-pointer">
+<input class="text-primary focus:ring-primary w-4 h-4" name="address" type="radio">
+<div>
+<p class="font-label-md text-label-md text-primary">Office</p>
+<p class="text-xs text-on-surface-variant">Level 12, Ocean Tower, Business District</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Delivery Method -->
+<div class="glass-panel ocean-shadow rounded-xl p-5 border-l-4 border-secondary">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-headline-md text-headline-md-mobile text-primary">Delivery Method</h4>
+</div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 p-3 rounded-lg border border-secondary-fixed-dim bg-secondary-container/10 cursor-pointer">
+<input checked="" class="text-secondary focus:ring-secondary w-4 h-4" name="method" type="radio">
+<div class="flex-grow">
+<div class="flex justify-between items-center">
+<p class="font-label-md text-label-md text-primary">Instant Catch</p>
+<span class="text-xs font-bold text-secondary">30-45 mins</span>
+</div>
+<p class="text-xs text-on-surface-variant">Priority courier service</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg border border-outline-variant hover:border-secondary-fixed-dim transition-all cursor-pointer">
+<input class="text-secondary focus:ring-secondary w-4 h-4" name="method" type="radio">
+<div class="flex-grow">
+<div class="flex justify-between items-center">
+<p class="font-label-md text-label-md text-primary">Same Day Tide</p>
+<span class="text-xs font-bold text-on-surface-variant">By 6:00 PM</span>
+</div>
+<p class="text-xs text-on-surface-variant">Eco-friendly consolidated route</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-4">
+<div class="sticky top-24 space-y-4">
+<div class="glass-panel ocean-shadow rounded-2xl p-6">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Ringkasan Belanja</h2>
+<div class="space-y-4 pb-6 border-b border-outline-variant/30">
+<div class="flex justify-between text-on-surface-variant">
+<span class="font-body-md text-body-md">Subtotal (3 items)</span>
+<span class="font-label-md text-label-md">$62.50</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="font-body-md text-body-md">Delivery Fee</span>
+<span class="font-label-md text-label-md text-secondary">Free</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="font-body-md text-body-md">Discount (FRESH20)</span>
+<span class="font-label-md text-label-md text-error">- $12.50</span>
+</div>
+</div>
+<div class="py-6 flex justify-between items-center">
+<span class="font-headline-md text-headline-md text-primary">Total Harga</span>
+<span class="font-display-lg text-[28px] text-primary">$50.00</span>
+</div>
+<button class="w-full py-4 px-6 rounded-xl gradient-oceanic text-on-primary font-headline-md text-headline-md ocean-shadow active:scale-95 transition-all duration-200 flex items-center justify-center gap-2">Pesan Sekarang<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-xs text-on-surface-variant mt-4">
+                            By placing an order, you agree to FishGo's <a class="underline" href="#">Terms of Service</a>.
+                        </p>
+</div>
+<!-- Promo Code Card -->
+<div class="glass-panel ocean-shadow rounded-xl p-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">sell</span>
+<input class="flex-grow bg-transparent border-none focus:ring-0 text-label-md font-label-md" placeholder="Promo code" type="text" value="FRESH20">
+<button class="text-primary font-label-md text-label-md">Applied</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center h-20 px-4 pb-safe bg-white/70 dark:bg-surface-container/80 backdrop-blur-xl border-t border-white/30 dark:border-outline-variant shadow-[0_-8px_20px_0_rgba(0,42,72,0.06)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-variant/50 transition-all px-4 py-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-variant/50 transition-all px-4 py-1" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-md text-label-md">Market</span>
+</a>
+<!-- Active Tab: Cart -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary-fixed-dim dark:text-on-primary-fixed rounded-2xl px-4 py-1 shadow-[0_0_12px_rgba(18,216,250,0.3)] scale-90 duration-150 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="font-label-md text-label-md">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-variant/50 transition-all px-4 py-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for quantity selectors
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const span = this.parentElement.querySelector('span');
+                if (!span) return;
+                
+                let val = parseInt(span.innerText);
+                if (this.innerText.includes('add')) {
+                    span.innerText = val + 1;
+                } else if (this.innerText.includes('remove') && val > 1) {
+                    span.innerText = val - 1;
+                }
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

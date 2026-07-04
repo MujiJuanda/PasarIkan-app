@@ -1,0 +1,358 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Salmon Fresh Fillet - FishGo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-fixed-dim": "#9ccbfb",
+                "surface-bright": "#f4faff",
+                "surface-dim": "#d2dbe1",
+                "on-error-container": "#93000a",
+                "primary": "#002a48",
+                "on-primary-container": "#7faddc",
+                "outline": "#72777f",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed-dim": "#16d9fb",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "tertiary": "#262829",
+                "primary-container": "#00416a",
+                "surface-container-highest": "#dbe4ea",
+                "primary-fixed": "#cfe5ff",
+                "error-container": "#ffdad6",
+                "on-background": "#141d21",
+                "on-primary-fixed-variant": "#114a73",
+                "surface-container-high": "#e0e9ef",
+                "secondary-fixed": "#aaedff",
+                "outline-variant": "#c2c7cf",
+                "on-secondary-container": "#005d6d",
+                "on-tertiary-fixed-variant": "#454747",
+                "error": "#ba1a1a",
+                "on-surface-variant": "#42474e",
+                "on-tertiary-container": "#a8a9a9",
+                "secondary-container": "#1fdcfe",
+                "tertiary-container": "#3c3e3e",
+                "surface-variant": "#dbe4ea",
+                "on-primary": "#ffffff",
+                "surface-container-low": "#ecf5fb",
+                "surface-tint": "#31628d",
+                "inverse-primary": "#9ccbfb",
+                "inverse-on-surface": "#e9f2f8",
+                "on-tertiary-fixed": "#1a1c1c",
+                "surface": "#f4faff",
+                "inverse-surface": "#293236",
+                "background": "#f4faff",
+                "secondary": "#006879",
+                "on-primary-fixed": "#001d33",
+                "on-secondary": "#ffffff",
+                "on-secondary-fixed": "#001f26",
+                "tertiary-fixed": "#e2e2e2",
+                "surface-container": "#e6eff5",
+                "on-surface": "#141d21",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                "on-secondary-fixed-variant": "#004e5c"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "stack-md": "16px",
+                "stack-lg": "32px",
+                "stack-sm": "8px",
+                "gutter": "16px",
+                "unit": "8px",
+                "container-margin": "24px"
+            },
+            "fontFamily": {
+                "headline-lg-mobile": ["Montserrat"],
+                "price-display": ["Montserrat"],
+                "body-md": ["Inter"],
+                "display-lg": ["Montserrat"],
+                "label-md": ["Inter"],
+                "headline-lg": ["Montserrat"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Montserrat"]
+            },
+            "fontSize": {
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "price-display": ["22px", {"lineHeight": "24px", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .ocean-shadow {
+            box-shadow: 0 8px 20px 0 rgba(0, 42, 72, 0.06);
+        }
+        .inner-glow {
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+        }
+        .gradient-oceanic {
+            background: linear-gradient(135deg, #00416a 0%, #002a48 100%);
+        }
+        .animated-pulse-soft {
+            animation: pulse-soft 3s infinite ease-in-out;
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.95; transform: scale(1.02); }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cfe5ff;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed-variant overflow-x-hidden">
+<!-- Top App Bar (As specified in JSON, minus Nav for Task-Focused screen) -->
+<header class="docked full-width top-0 sticky z-40 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-[0_8px_20px_0_rgba(0,42,72,0.06)] h-16 w-full">
+<div class="flex justify-between items-center px-container-margin h-full w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-primary/5 transition-colors" onclick="window.history.back()">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">PasarIkan</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex flex-col items-end">
+<span class="font-label-md text-[10px] text-on-surface-variant uppercase tracking-wider">Current Market</span>
+<span class="font-label-md text-label-md text-primary">Banda Aceh</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed text-sm">location_on</span>
+</div>
+</div>
+</div>
+</header>
+<main class="pb-32">
+<!-- Hero Image Section -->
+<section class="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A high-resolution, close-up photograph of a fresh Atlantic Salmon fillet resting on a bed of crushed ice. The skin is silver and shimmering while the meat is a vibrant, deep orange with clear white fat marbling. Soft, cool lighting from a coastal morning window creates gentle highlights and a professional, hygienic aesthetic. The background is a clean, minimalist kitchen setting with subtle blue and white tones to emphasize oceanic freshness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCJbLIVgyg5jyzQtqP3DhiqPyMgixfhwH4jw2BT1jQYYWp5ub0cXAZOfRDLIBj2q9bsRVuLCp5lmy0IcvEe7_tk0o14dllav4oKGEYp0tsDMyfgHaYsZ_5gm_UTATi-QeYm0bcWDrQGVrozbQlt4W9Ie_LVRjENAbvdI96lnpPHTqNlKbFnvpVxCqg2R0k-JNlLAXxrPqL8RNuZzceGAJ8-pHtI7P-fkpRxd-pdBJWhP8B8G0kwg-51WOEw_sKPVBgJ0yJYBO94ae6">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<!-- Floating Badge -->
+<div class="absolute top-4 right-4 glass-panel px-4 py-2 rounded-full flex items-center gap-2 ocean-shadow">
+<span class="flex h-2 w-2 rounded-full bg-secondary-container"></span>
+<span class="font-label-md text-label-md text-primary">Freshly Caught Today</span>
+</div>
+</section>
+<!-- Product Content -->
+<article class="px-container-margin -mt-12 relative z-10 max-w-4xl mx-auto">
+<div class="bg-surface-container-lowest rounded-3xl p-6 md:p-10 ocean-shadow border border-white/40">
+<!-- Header & Price -->
+<div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Salmon Fresh Fillet</h1>
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-secondary-container/10 px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-secondary-container ml-1">4.9</span>
+</div>
+<span class="font-body-md text-label-md text-on-surface-variant">(120+ Reviews)</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-price-display text-price-display text-primary">$</span>
+<span class="font-price-display text-[42px] leading-tight text-primary" id="main-price">24.50</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">per 500g</span>
+</div>
+</div>
+<!-- Market Trend & Delivery -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+<!-- Mini Graph Card -->
+<div class="bg-surface-container-low rounded-2xl p-4 border border-outline-variant/30">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-tint">query_stats</span>
+<span class="font-label-md text-label-md text-primary">Market Trend</span>
+</div>
+<span class="font-label-md text-xs text-secondary-container px-2 py-0.5 rounded bg-primary-container">Stable</span>
+</div>
+<div class="h-12 w-full flex items-end gap-1">
+<div class="flex-1 bg-primary/10 h-1/2 rounded-t-sm"></div>
+<div class="flex-1 bg-primary/10 h-2/3 rounded-t-sm"></div>
+<div class="flex-1 bg-primary/10 h-3/4 rounded-t-sm"></div>
+<div class="flex-1 bg-primary/20 h-2/3 rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-4/5 rounded-t-sm"></div>
+<div class="flex-1 bg-secondary-container h-full rounded-t-sm"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-2">Prices are 5% lower than last week's average.</p>
+</div>
+<!-- Delivery Card -->
+<div class="bg-surface-container-low rounded-2xl p-4 border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center ocean-shadow">
+<span class="material-symbols-outlined text-secondary">delivery_dining</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Fast Delivery</p>
+<p class="text-xs text-on-surface-variant">Arrives in <span class="text-secondary font-bold">25 - 35 mins</span></p>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">verified</span>
+<span class="">Cold-chain tracked delivery</span>
+</div>
+</div>
+</div>
+<!-- Weight Selector -->
+<div class="mt-8">
+<label class="font-label-md text-label-md text-primary block mb-4">Select Desired Weight</label>
+<div class="flex flex-wrap gap-3">
+<button class="weight-btn border-2 border-outline-variant rounded-xl px-6 py-3 font-label-md text-label-md transition-all hover:bg-surface-variant flex flex-col items-center min-w-[100px]" onclick="updatePrice(12.25, '250g')">
+<span class="">250g</span>
+<span class="text-[10px] text-on-surface-variant mt-1">$12.25</span>
+</button>
+<button class="weight-btn active border-2 border-primary-container bg-primary-container text-white rounded-xl px-6 py-3 font-label-md text-label-md transition-all flex flex-col items-center min-w-[100px] ocean-shadow" onclick="updatePrice(24.50, '500g')">
+<span class="">500g</span>
+<span class="text-[10px] opacity-80 mt-1">$24.50</span>
+</button>
+<button class="weight-btn border-2 border-outline-variant rounded-xl px-6 py-3 font-label-md text-label-md transition-all hover:bg-surface-variant flex flex-col items-center min-w-[100px]" onclick="updatePrice(48.00, '1kg')">
+<span class="">1kg</span>
+<span class="text-[10px] text-on-surface-variant mt-1">$48.00</span>
+</button>
+</div>
+</div>
+<!-- Description -->
+<div class="mt-10 pt-10 border-t border-outline-variant/20">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Product Details</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Sourced directly from the cold, clear waters of the North Atlantic. Our premium Salmon fillet is hand-cut and immediately chilled to preserve its delicate flavor and firm texture. Rich in Omega-3 fatty acids and heart-healthy proteins, it's the perfect choice for pan-searing, grilling, or oven-roasting.
+                    </p>
+<div class="mt-6 flex flex-wrap gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">kitchen</span>
+<span class="text-xs font-label-md">Keep at 0-4°C</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">set_meal</span>
+<span class="text-xs font-label-md">Sushi Grade</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">eco</span>
+<span class="text-xs font-label-md">Sustainably Sourced</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+</main>
+<!-- Sticky Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-white/30 h-24 flex items-center px-container-margin">
+<div class="max-w-4xl mx-auto w-full flex items-center justify-between gap-6">
+<div class="hidden sm:flex flex-col">
+<span class="text-xs text-on-surface-variant font-label-md">Estimated Total</span>
+<span class="font-price-display text-headline-md text-primary" id="footer-price">$24.50</span>
+</div>
+<div class="flex flex-1 items-center gap-4">
+<div class="flex items-center bg-surface-container rounded-full p-1 ocean-shadow border border-white/50">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white transition-all text-primary" onclick="changeQty(-1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="w-8 text-center font-headline-md text-primary" id="qty">1</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white transition-all text-primary" onclick="changeQty(1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<button class="flex-1 gradient-oceanic inner-glow text-white font-label-md h-12 md:h-14 rounded-full flex items-center justify-center gap-3 ocean-shadow active:scale-95 transition-transform duration-150" id="add-to-cart-btn">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="">Tambah Keranjang</span>
+</button>
+</div>
+</div>
+</footer>
+<!-- Toast Notification (Success) -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-[60] glass-panel px-6 py-3 rounded-2xl shadow-2xl border border-secondary-container transition-all duration-300 flex items-center gap-3 opacity-0 translate-y-[-20px] pointer-events-none" id="toast">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-md text-primary">Added to your oceanic basket!</span>
+</div>
+<script>
+        let currentUnitPrice = 24.50;
+        let currentQty = 1;
+
+        function updatePrice(price, label) {
+            currentUnitPrice = price;
+            document.getElementById('main-price').innerText = price.toFixed(2);
+            
+            // Update buttons styling
+            const btns = document.querySelectorAll('.weight-btn');
+            btns.forEach(btn => {
+                if(btn.innerText.includes(label)) {
+                    btn.classList.add('active', 'border-primary-container', 'bg-primary-container', 'text-white', 'ocean-shadow');
+                    btn.classList.remove('border-outline-variant', 'hover:bg-surface-variant');
+                } else {
+                    btn.classList.remove('active', 'border-primary-container', 'bg-primary-container', 'text-white', 'ocean-shadow');
+                    btn.classList.add('border-outline-variant', 'hover:bg-surface-variant');
+                }
+            });
+
+            recalculateTotal();
+        }
+
+        function changeQty(delta) {
+            currentQty = Math.max(1, currentQty + delta);
+            document.getElementById('qty').innerText = currentQty;
+            recalculateTotal();
+        }
+
+        function recalculateTotal() {
+            const total = currentUnitPrice * currentQty;
+            document.getElementById('footer-price').innerText = '$' + total.toFixed(2);
+        }
+
+        const cartBtn = document.getElementById('add-to-cart-btn');
+        const toast = document.getElementById('toast');
+
+        cartBtn.addEventListener('click', () => {
+            // Trigger feedback
+            cartBtn.classList.add('scale-95');
+            setTimeout(() => cartBtn.classList.remove('scale-95'), 150);
+
+            // Show Toast
+            toast.classList.remove('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 3000);
+        });
+    </script>
+
+
+</body></html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FishGo - Market Catalog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#9ccbfb",
+                        "surface-bright": "#f4faff",
+                        "surface-dim": "#d2dbe1",
+                        "on-error-container": "#93000a",
+                        "primary": "#002a48",
+                        "on-primary-container": "#7faddc",
+                        "outline": "#72777f",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#16d9fb",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "tertiary": "#262829",
+                        "primary-container": "#00416a",
+                        "surface-container-highest": "#dbe4ea",
+                        "primary-fixed": "#cfe5ff",
+                        "error-container": "#ffdad6",
+                        "on-background": "#141d21",
+                        "on-primary-fixed-variant": "#114a73",
+                        "surface-container-high": "#e0e9ef",
+                        "secondary-fixed": "#aaedff",
+                        "outline-variant": "#c2c7cf",
+                        "on-secondary-container": "#005d6d",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#42474e",
+                        "on-tertiary-container": "#a8a9a9",
+                        "secondary-container": "#1fdcfe",
+                        "tertiary-container": "#3c3e3e",
+                        "surface-variant": "#dbe4ea",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#ecf5fb",
+                        "surface-tint": "#31628d",
+                        "inverse-primary": "#9ccbfb",
+                        "inverse-on-surface": "#e9f2f8",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface": "#f4faff",
+                        "inverse-surface": "#293236",
+                        "background": "#f4faff",
+                        "secondary": "#006879",
+                        "on-primary-fixed": "#001d33",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container": "#e6eff5",
+                        "on-surface": "#141d21",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#004e5c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Montserrat"],
+                        "price-display": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "price-display": ["22px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .ocean-gradient {
+            background: linear-gradient(135deg, #12D8FA 0%, #00416A 100%);
+        }
+        .glossy-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .glossy-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 100%);
+            pointer-events: none;
+        }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+        .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen font-body-md pb-24">
+<!-- Top AppBar -->
+<header class="bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-[0_8px_20px_0_rgba(0,42,72,0.06)] sticky top-0 z-50 w-full">
+<div class="flex justify-between items-center px-container-margin h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<img alt="FishGo logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuxnTpcFtCiXJIuj3c13LR761EhfG6apOj6Ib17gm83JmNzxb-QkR0jQu6k2q-LGAHXxJdkAjVMI_zNwaubPWxFP_ON4FyU_hP12xcPtjaDPgXiyjoPUvpKKJ6njGIWwT2yvAyoDwtXIpluTBGwenlo9mxOxteooKlCwCgBpyNd6U363t19SIPuBqg7nONSx7VDlYyAbemC2zCcUiwe0tCRLwMwL3ZL25OfzOrbnYfDGxh8zRVOxmzYzJSeVes0fdqopDCAyVc0XTG">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">PasarIkan</span>
+</div>
+<button class="flex items-center gap-1.5 font-label-md text-label-md text-primary hover:bg-primary/5 transition-colors px-3 py-1.5 rounded-full border border-primary/10">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+                Atur Lokasi</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin mt-6">
+<!-- Hero Section / Search -->
+<div class="relative rounded-3xl overflow-hidden h-48 mb-8 shadow-xl">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A cinematic, high-definition photograph of fresh Atlantic salmon fillets resting on a bed of crushed ice. The lighting is bright and cool, emphasizing the vibrant orange hues of the fish and the crystalline texture of the ice. The scene is set in a modern, professional seafood market with subtle blue accents and a clean, hygienic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnld8Bbo2hk8qy88ryBnjxdfombFoHNFNvGsg7LNKI57KhYGEZBjcrw2bWXCfm1TRREtMOV0kdGa0qCosQq9qaBaUqg4Nc1qvC0ErxdD5h_VNh4MB1YBPnH5nxLNe8hSovA9JTqno2q4YftdEnQhaElmWGWRVtlPyOXsolK7SCz4pXrVTlJD3-FLUsvA7aIE16T8bFPvPgqba1MT2dQ7AZKLsATmAMJ-YdvFh-u-_J7UWhdVOnitL-RZF74fpRrYXz0xMUuIB45Oxm">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent flex flex-col justify-center px-8">
+<h1 class="font-headline-lg text-headline-lg text-white mb-2">Oceanic Freshness</h1>
+<p class="text-white/90 font-body-md">Sourced daily from the coast to your kitchen.</p>
+</div>
+</div>
+<!-- Filter Chips -->
+<section class="mb-8">
+<div class="flex gap-3 overflow-x-auto scroll-hide pb-2">
+<button class="px-6 py-2 rounded-full font-label-md text-label-md transition-transform active:scale-95 bg-primary text-white shadow-lg">Semua</button>
+<button class="px-6 py-2 rounded-full font-label-md text-label-md bg-white text-primary border border-primary/10 hover:bg-primary/5 transition-all">Fresh</button>
+<button class="px-6 py-2 rounded-full font-label-md text-label-md bg-white text-primary border border-primary/10 hover:bg-primary/5 transition-all">Frozen</button>
+<button class="px-6 py-2 rounded-full font-label-md text-label-md bg-white text-primary border border-primary/10 hover:bg-primary/5 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    Premium
+                </button>
+</div>
+</section>
+<!-- Market Trends (Comparison) -->
+<section class="mb-10">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-primary">Harga Pasar</h2>
+<span class="text-on-surface-variant font-label-md text-[12px] uppercase tracking-wider">Today vs Yesterday</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="glass-card rounded-2xl p-4 flex items-center justify-between border border-[#E0F2FE] shadow-[0_8px_20px_0_rgba(0,42,72,0.06)]">
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Yellowfin Tuna</p>
+<p class="font-price-display text-price-display text-primary">$24.50/kg</p>
+</div>
+<div class="flex items-center gap-1 text-green-600 bg-green-50 px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">trending_down</span>
+<span class="font-label-md">-4.2%</span>
+</div>
+</div>
+<div class="glass-card rounded-2xl p-4 flex items-center justify-between border border-[#E0F2FE] shadow-[0_8px_20px_0_rgba(0,42,72,0.06)]">
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Sea Bream</p>
+<p class="font-price-display text-price-display text-primary">$18.20/kg</p>
+</div>
+<div class="flex items-center gap-1 text-red-600 bg-red-50 px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+<span class="font-label-md">+2.1%</span>
+</div>
+</div>
+<div class="glass-card rounded-2xl p-4 flex items-center justify-between border border-[#E0F2FE] shadow-[0_8px_20px_0_rgba(0,42,72,0.06)]">
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">King Prawns</p>
+<p class="font-price-display text-price-display text-primary">$32.00/kg</p>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant bg-surface-container px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">horizontal_rule</span>
+<span class="font-label-md">Stable</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Grid -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Daily Catch</h2>
+<button class="text-primary font-label-md hover:underline decoration-primary/30">View All</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<div class="bg-white rounded-3xl overflow-hidden border border-[#E0F2FE] shadow-[0_8px_20px_0_rgba(0,42,72,0.06)] group hover:shadow-xl transition-shadow duration-300">
+<div class="relative h-40 overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A studio-lit, high-resolution shot of a fresh, whole European Sea Bass presented on a minimal white marble surface. The scales of the fish shimmer with a natural silvery-blue luster, indicating peak freshness. The composition is clean and artistic, following a luxury seafood market aesthetic with soft, diffuse lighting and deep blue background elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw_34UwrXa2-SNJ2Ji336lkHm2dQ2v55rdYdYtmicQQcdLit3unVEbMr5WBsD5AjKqayqmvuAgN3THduqcTTz9S4mhPN_upYzX7xKRTDK7_eSgqqHiBRPT6IYg-gUz66sBfwKJeeFmJy77YUqro0Y9zeCl2GbvcDSR_dF67ruhowoY1x4OvpzYAlRXTMQwC3jDEuc-BKiCo4ypgXbskU9wc8-pNSMURLCCgJfUBq_TQ5pKu4dRPbqBQH9cBzeYrDgB4YtcNzS4S7hL">
+<span class="absolute top-3 left-3 bg-[#12D8FA]/15 text-primary px-2 py-0.5 rounded-full font-label-md text-[10px] backdrop-blur-md">FRESH</span>
+</div>
+<div class="p-4">
+<h3 class="font-headline-md text-[16px] text-primary mb-1 truncate">Wild Sea Bass</h3>
+<p class="font-body-md text-[12px] text-on-surface-variant mb-3 italic">Whole, Cleaned</p>
+<div class="flex items-center justify-between">
+<span class="font-price-display text-[18px] text-primary">$19.50<span class="text-[12px] font-normal text-on-surface-variant">/kg</span></span>
+<button class="ocean-gradient glossy-btn w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white rounded-3xl overflow-hidden border border-[#E0F2FE] shadow-[0_8px_20px_0_rgba(0,42,72,0.06)] group hover:shadow-xl transition-shadow duration-300">
+<div class="relative h-40 overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close-up of premium red King Salmon fillets neatly arranged on a modern cooling rack. The rich, marbled texture of the fish is highlighted by crisp, bright lighting that mimics a professional culinary environment. The background is a soft blue-grey, contributing to a premium, high-quality brand experience for fresh seafood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApmjjNH9JzzSKg-JXcRuFLHvfZjqevM6eF3emZ_jNsFhFNF2BINkgKGqvk4-eCrTw15x6_IdTgVdk32l5VRkPAYLT6STnLmRmW5gPjhJUtpKpXGzg2PmjT2Ei0PlVEGWKg6Bjok3RXQ4SRYACHzCngiLBgOgRCYwatHpuCF3voxRiTH0nyRRpEnfBKsNL0PhrU2atQiMqAMBe1yxjxYSRKIZ-5u-CO5WCvPU7ThfYBvmEVQVWGUEqb5tnssQghzK2PyO9sDETTPLbW">
+<span class="absolute top-3 left-3 bg-[#12D8FA]/15 text-primary px-2 py-0.5 rounded-full font-label-md text-[10px] backdrop-blur-md">PREMIUM</span>
+</div>
+<div class="p-4">
+<h3 class="font-headline-md text-[16px] text-primary mb-1 truncate">King Salmon</h3>
+<p class="font-body-md text-[12px] text-on-surface-variant mb-3 italic">Fillet, Skin-on</p>
+<div class="flex items-center justify-between">
+<span class="font-price-display text-[18px] text-primary">$28.90<span class="text-[12px] font-normal text-on-surface-variant">/kg</span></span>
+<button class="ocean-gradient glossy-btn w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded-3xl overflow-hidden border border-[#E0F2FE] shadow-[0_8px_20px_0_rgba(0,42,72,0.06)] group hover:shadow-xl transition-shadow duration-300">
+<div class="relative h-40 overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Macro photography of fresh, chilled Mediterranean octopus tentacles. The intricate textures and vibrant purple and white patterns of the suction cups are sharply focused under a soft morning light. The setting is clean and high-end, utilizing the brand's oceanic blue color palette to emphasize hygiene and fresh ocean quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxpb3KPgIWCHYkcQ0cCUqfW3uus40_CeYxCBzYIJ85gf9ESjSJOuSdFMLgt-lZUiuarIqTfbDVN1avTz3ox0CkgM16fnPoCZisFSUOoXRSq7i2AP9cXVaVQEbkGuemsuwbfurxLlCk1WCs3x2Xz2Av0YCcobC85LXFl9G865-CFz7gNhtU-XUe3fiHkG83otRYM-AqTy7ZOvcz6pucx90r1QNpd9JHm74pdYGz6DgM0Orzd2hF71kBbTkdbDOI0Njds8tsqr4W1m9E">
+<span class="absolute top-3 left-3 bg-[#12D8FA]/15 text-primary px-2 py-0.5 rounded-full font-label-md text-[10px] backdrop-blur-md">FROZEN</span>
+</div>
+<div class="p-4">
+<h3 class="font-headline-md text-[16px] text-primary mb-1 truncate">Octopus Tentacles</h3>
+<p class="font-body-md text-[12px] text-on-surface-variant mb-3 italic">Cleaned, IQF</p>
+<div class="flex items-center justify-between">
+<span class="font-price-display text-[18px] text-primary">$34.00<span class="text-[12px] font-normal text-on-surface-variant">/kg</span></span>
+<button class="ocean-gradient glossy-btn w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white rounded-3xl overflow-hidden border border-[#E0F2FE] shadow-[0_8px_20px_0_rgba(0,42,72,0.06)] group hover:shadow-xl transition-shadow duration-300">
+<div class="relative h-40 overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Vibrant, fresh Red Mullet fish displayed on a bed of ice in an upscale market. The bright red and orange scales of the fish create a stunning contrast with the cool, blue-white ice crystals. The lighting is polished and high-key, reinforcing a sense of cleanliness and premium gourmet quality consistent with an elite seafood delivery app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCTV3PMORtjgKAAGybElgMNaFX8YBpQWRqu3DglR8MoY7IvcueHLhC15teQYAx4uzcEOVS3Ms-NnH0fi8lruc5yBheSgRVNHaDFXmJbi0vyi40PM0k8QClZPcZ_z0Y9Dzs-fVcxLWzO3UqVa1DfGcuvil0-tRfBU9ptBuX1keMPA5ixkC7rBTVGmzwbFyBM4QvSTRo0QZc2-4JZ347rC3z3RKDp_4KhRkyREvXDPitgi7Dj9_eDH9-l_ilWsTk6KdIH1_7-WPWUBuZ">
+<span class="absolute top-3 left-3 bg-[#12D8FA]/15 text-primary px-2 py-0.5 rounded-full font-label-md text-[10px] backdrop-blur-md">FRESH</span>
+</div>
+<div class="p-4">
+<h3 class="font-headline-md text-[16px] text-primary mb-1 truncate">Red Mullet</h3>
+<p class="font-body-md text-[12px] text-on-surface-variant mb-3 italic">Whole, Mediterranean</p>
+<div class="flex items-center justify-between">
+<span class="font-price-display text-[18px] text-primary">$22.00<span class="text-[12px] font-normal text-on-surface-variant">/kg</span></span>
+<button class="ocean-gradient glossy-btn w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-t border-white/30 shadow-[0_-8px_20px_0_rgba(0,42,72,0.06)] h-20 px-4 pb-safe flex justify-around items-center rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all px-4 py-1 rounded-2xl" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 shadow-[0_0_12px_rgba(18,216,250,0.3)] scale-90 duration-150 ease-out" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-md text-label-md">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all px-4 py-1 rounded-2xl" href="#">
+<div class="relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</div>
+<span class="font-label-md text-label-md">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all px-4 py-1 rounded-2xl" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for buttons
+        document.querySelectorAll('.glossy-btn').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.95)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+
+        // Filter chip selection logic
+        const chips = document.querySelectorAll('section:nth-of-type(1) button');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('bg-primary', 'text-white', 'shadow-lg');
+                    c.classList.add('bg-white', 'text-primary', 'border', 'border-primary/10');
+                });
+                chip.classList.remove('bg-white', 'text-primary', 'border', 'border-primary/10');
+                chip.classList.add('bg-primary', 'text-white', 'shadow-lg');
+            });
+        });
+    </script>
+
+
+</body></html>
